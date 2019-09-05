@@ -1,0 +1,88 @@
+\documentclass[10pt, a4paper]{article}
+\usepackage[top=0.6in,bottom=1.0in,left=1.0in,right=1.0in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{hyperref}
+\fontfamily{times}
+\usepackage{graphicx,float,tikz}
+
+\title{\large CS 4366: Senior Capstone Project \\ Dr. Sunho Lim \\ Project \#1 - Project Plan \\ FastCast}
+\author{Justin Aguilar \ Ryan Kelley \ Manoj Khatri \ Sergio Ponce \ N'Godjigui Junior Diarrassouba}
+\date{September 5th, 2019}
+
+\begin{document}
+
+\maketitle
+% \vspace{-1cm}
+% \begin{abstract}
+% In this report, we propose the development of a mobile application which will provide users with multiuse, centralized emergency information and notification. This application will provide friends and family members with priority connections in times of emergency or crisis.
+% \end{abstract}
+
+\section{Problem Definition and Motivation}
+\par ~ Traditional education is one of the most important aspects of our lives. From the National Center On Education And the Economy, students are in school for at least 180 days every year with an average school day length of 6.8 hours \cite{one}. This is roughly equivalent to half of a year (365 days). By the time a student is 20 years old, they have been in a classroom for more than the majority of their life. At the same time, while there are more students in classrooms every year due to population growth, there are fewer teachers available to teach \cite{two}. This situation brings unique challenges to traditional education.
+
+\par ~ The Internet and the technological possibilities enabled by the Internet have redefined traditional education. While they have brought new opportunities such as online education and more access to resources, they have also introduced difficult challenges of all sorts. For instance, while students have access to many resources to supplement their education, both students and teachers have to now worry about the veracity of their sources. Another prominent challenge is the increasing number of distractions brought by new technologies. Teachers have to work harder to convey the material to students who are now lacking focus. At the same time, students have to try and work in the midst of more classroom distractions. Other  challenges  include  how  online  education  removes  the  physical  dimension  of traditional education, which for some, is a cornerstone of a great education.
+
+\par ~ On one side, we observe an increase in the number of students and a decrease in the number of teachers. On the other side, we observe that it is increasingly difficult for teachers to convey the material. Another very important issue about education in this age is the high cost. From the National Center for Education Statistics, the tuition costs (in current dollars) in 4-year U.S. public institutions rose by 36\% (1995-96 to 2015-16) and by 42\% for 4-year U.S. private institutions \cite{three}. From those observations, we can see how teaching (and learning thereof) in this age is more difficult. 
+
+\par ~ As Computer Scientists, we see hope in the potential of new technologies to positively impact traditional education. That being said, we are proposing a cheap and easy-to-use system that augments the abilities of educators to teach students.
+
+\section{System Overview}
+\par ~ At its core, the FastCast system is a modular and a platform agnostic Application Programming Interface (api) that
+\begin{enumerate}
+    \item Runs from an embedded system (Raspberry Pi, Arduino)
+    \item Receives information to be shared (cast), and instructions about the destination and the target users
+    \item Authenticates and collects target users' responses during a specific time period
+    \item Sends the responses back to the previously specified destination
+\end{enumerate}  
+
+\par ~ As its name suggests, FastCast aims to do the above in an efficient manner. As far as the classroom is concerned, the system will allow the professors and students to seamlessly communicate and interact with the class material without respect to the number of students. Professors will be able to ask more questions to the students, have more opportunities to engage with the students, and get feedback quickly. 
+
+\par ~ This general and broad specification of the system has many benefits as it allows for many different applications. For instance, professors will be allowed to take roll call in classes of 100+ students as fast as they would have if they were in a class of 10 students. FastCast will allow professors to limit the target users (namely the students in this use case) to be only the ones present in class, or the online students as well for hybrid classes. We can extend this previous example with another one. For instance, there are many instances during classes when professors want to know if students understood a key point in the material. Sometimes, that key point has to be understood for the next key point to be understood. In those situations, some professors like to ask if anybody has a question but only rarely do they get any questions. FastCast will allow professors to quickly set up a quiz and quickly get answers back. Those answers could be redirected to a learning management system like BlackBoard or Canvas, or to the professor's device for quick analysis and visualization.
+
+\par ~ FastCast hopes to be augment traditional teaching and adapt it to the realities of the 21st century. At the same time, FastCast leverages Internet of Things devices such as Raspberry Pi and Arduino as its deployment platform for portability and simplicity. Furthermore, that choice allows FastCast to be made available to many at a relatively low cost.
+
+\par ~ For the proof of concept, the FastCast system will include its core element, namely the FastCast API, running on a Raspberry Pi or an Arduino UNO. It will also include a phone application powered by Flutter, an open-source mobile application development framework. The app will be able to be used by either the professor or the students. In addition, we hope to provide a web application which leverages the API and is made available to both professors and students. The system will be managed locally and self contained most of the time. However, the system will send telemetry to to Azure IoT for quality assurance (with agreement of the user of course).
+
+Here is a list of tentative features for our proof of concept:
+\begin{enumerate}
+\item[I.] A core FastCast system which runs from an embedded system. The system communicates with both professors and students' devices through an API which
+\begin{enumerate}
+    \item[1. ] Receives information to be shared and instructions about and destination responses
+    \begin{enumerate}
+        \item Type of Information to be shared: Quiz (one or more questions), an attendance request, an information (one to many communication)
+        \item Type of instructions about destination: Professors' phone, or another server
+        \item Type of responses: a text answer (choice or free form), or a read receipt
+    \end{enumerate}
+    \item[2. ] Authenticates and collect responses From the students' phone app
+    \item[3. ] Sends responses to the specified destination
+\end{enumerate}
+\item[II.] A phone application and web apps which give
+\begin{enumerate}
+    \item[1. ] The ability for the students and professors to have different profiles (one for each class)
+    \item[2. ] The ability for the professor to quickly launch a question/quiz and for the students to quickly answer
+    \item[3. ] The ability for the professor to store templates of questions and send feedback
+    \item[4. ] The ability for the professor to ask either free form questions or questions requiring responses with specific values
+    \item[5. ] The ability for the professor to receive and see responses in real time 
+    \item[6. ] The ability for the students to either use the phone app or website to answer
+\end{enumerate}
+
+\end{enumerate}
+
+\section{Expected Outcomes and Improvements}
+\par ~ We are excited to build a complete system involving two main APIs --the main FastCast API running from the embedded system and another API for the phone and web app. We will learn more about software development, embedded system development, networking, mobile and web development, and cloud computing (Azure).
+
+\par ~ We hope that FastCast will help students to learn better and will give professors more tools to be more effective. We think that offering this product for free for students and at a relatively cheap cost for professors and institutions will help in that regard.
+
+\par ~ Finally, we hope that FastCast will open the door for efficient and cheap innovations to augment the current educational system.
+	
+\begin{thebibliography}{9}
+\bibitem{one}
+Statistics of the month: how much time do students spend in school (2019): \url{http://ncee.org/2018/02/statistic-of-the-month-how-much-time-do-students-spend-in-school/}
+\bibitem{two}
+Teacher shortage, protests complicate educator pay dynamics (2019): \url{https://www.apnews.com/0b3ea7528682452cb20ea797caa2b614}
+\bibitem{three}
+Tuition costs of college and universities (2019):
+\url{https://nces.ed.gov/fastfacts/display.asp?id=76}
+\end{thebibliography}
+\end{document}
+
