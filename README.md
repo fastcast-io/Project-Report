@@ -1,7 +1,8 @@
-# Project-Report
-Capstone Project #1 - Report
+# CS 4366 | Capstone Project
+## Capstone Project Plan 
 
 Team Name: Omicron 7
+
 Project Name: FastCast
 
 Members:
